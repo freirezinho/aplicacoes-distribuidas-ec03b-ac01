@@ -274,6 +274,7 @@ correto, tem que acessar os dados fornecidos.
 
 def qtos_libertadores(dados):
     dados = {}
+    
 
 
 '''
@@ -284,7 +285,7 @@ classificados.
 
 
 def ids_dos_melhor_classificados(dados, numero):
-    return int(str(dados['fases']['2700']['faixas-classificacao']['classifica1']['faixa']).split('-')[1])
+    return dados['fases']['2700']['classificacao']['grupo']['Único'][:numero]
 
 
 '''
