@@ -23,6 +23,7 @@ Integrantes:
 4 - Ronaldo Mendes da Silva
 5 - Saulo Santos Freire
 
+# repo no github: https://github.com/freirezinho/aplicacoes-distribuidas-ec03b-ac01
 
 1. Crie uma função datas_de_jogo, que procura nos dados do 
 brasileirão recebidas no parâmetro e devolve uma lista de todas 
@@ -239,7 +240,9 @@ Ela devolve a id do time que fez mais gols no campeonato.
 
 
 def time_que_fez_mais_gols(dados):
-    pass
+    result = dicionario_de_gols(dados)
+    return max(result, key=result.get)
+
 
 
 '''
@@ -274,6 +277,8 @@ correto, tem que acessar os dados fornecidos.
 
 def qtos_libertadores(dados):
     dados = {}
+    for time in 
+    return dados[]
     
 
 
@@ -300,7 +305,6 @@ a retornar.
 A função só recebe os dados do brasileirão.
 '''
 
-# comecei – Saulo
 def classificados_libertadores(dados):
     pass
 
@@ -317,9 +321,24 @@ Consulte a zona de rebaixamento do dicionário de dados, não deixe
 ela chumbada da função.
 '''
 
-
 def rebaixados(dados):
-    pass
+    faixas = dados['fases']['2700']['faixas-classificacao']
+    classificados_ordenados = dados['fases']['2700']['classificacao']['grupo']['\u00danico']
+    print(len(classificados_ordenados))
+    inicio_rebaixamento = 0
+    fim_rebaixamento = 1
+    rebaixados = []
+    for key, faixa in faixas.items():
+        print(key)
+        print(faixa)
+        if faixa['texto'] == "Zona de rebaixamento":
+            faixa_rebaixamento_split = faixa['faixa'].split('-')
+            inicio_rebaixamento = int(faixa_rebaixamento_split[0])
+            fim_rebaixamento = int(faixa_rebaixamento_split[1])
+    for i in range(inicio_rebaixamento -1, fim_rebaixamento):
+        print(classificados_ordenados[i])
+        rebaixados.append(classificados_ordenados[i])
+    return rebaixados
 
 
 '''
@@ -333,4 +352,10 @@ Se a id nao for válida, ela retorna a string 'não encontrado'.
 
 
 def classificacao_do_time_por_id(dados, time_id):
+    classificados_ordenados: list = dados['fases']['2700']['classificacao']['grupo']['\u00danico']
+    if time_id in classificados_ordenados:
+        posicao = classificados_ordenados.index(time_id) + 1
+        return posicao
+    else:
+        return 'não encontrado'
     pass
