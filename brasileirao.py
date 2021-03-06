@@ -256,10 +256,15 @@ o número de vezes que um jogo ocorreu no estádio.
 
 
 def dicionario_id_estadio_e_nro_jogos(dados):
-    dados = {}
-    d[('estadio'),('estadio_id')]
-    
-    
+    dado = {}
+    estadios = dados['fases']['2700']['jogos']['id']
+    for idjogo in estadios:
+        dado[estadios[idjogo]['estadio_id']] = 0
+    for idjogo in estadios:
+        if estadios[idjogo]['estadio_id'] in dado:
+            dado[estadios[idjogo]['estadio_id']] += 1
+    return dado
+      
 
 
 '''
@@ -274,24 +279,17 @@ você deve pegar esse número daí. Não basta retornar o valor
 correto, tem que acessar os dados fornecidos.
 '''
 
-
 def qtos_libertadores(dados):
-    dados = {}
-    for time in 
-    return dados[]
+    return int(dados['fases']['2700']['faixas-classificacao']['classifica1']['faixa'].split('-')[1])    
     
-
-
 '''
 14. A próxima função recebe um valor com qtos times devem aparecer
 na lista, e retorna esta lista, contendo as ids dos times melhor 
 classificados.
 '''
 
-
 def ids_dos_melhor_classificados(dados, numero):
     return dados['fases']['2700']['classificacao']['grupo']['Único'][:numero]
-
 
 '''
 15. A próxima função usa as duas anteriores para retornar uma 
@@ -306,7 +304,7 @@ A função só recebe os dados do brasileirão.
 '''
 
 def classificados_libertadores(dados):
-    pass
+    return ids_dos_melhor_classificados(dados, qtos_libertadores(dados))
 
 
 '''
@@ -322,23 +320,9 @@ ela chumbada da função.
 '''
 
 def rebaixados(dados):
-    faixas = dados['fases']['2700']['faixas-classificacao']
-    classificados_ordenados = dados['fases']['2700']['classificacao']['grupo']['\u00danico']
-    print(len(classificados_ordenados))
-    inicio_rebaixamento = 0
-    fim_rebaixamento = 1
-    rebaixados = []
-    for key, faixa in faixas.items():
-        print(key)
-        print(faixa)
-        if faixa['texto'] == "Zona de rebaixamento":
-            faixa_rebaixamento_split = faixa['faixa'].split('-')
-            inicio_rebaixamento = int(faixa_rebaixamento_split[0])
-            fim_rebaixamento = int(faixa_rebaixamento_split[1])
-    for i in range(inicio_rebaixamento -1, fim_rebaixamento):
-        print(classificados_ordenados[i])
-        rebaixados.append(classificados_ordenados[i])
-    return rebaixados
+    faixas = list(str(dados['fases']['2700']['faixas-classificacao']['classifica3']['faixa']).split('-'))
+    classificados = dados['fases']['2700']['classificacao']['grupo']['Único']
+    return classificados[int(faixas[0]) -1:int(faixas[1])]
 
 
 '''
@@ -358,4 +342,3 @@ def classificacao_do_time_por_id(dados, time_id):
         return posicao
     else:
         return 'não encontrado'
-    pass
