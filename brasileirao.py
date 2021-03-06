@@ -23,8 +23,6 @@ Integrantes:
 4 - Ronaldo Mendes da Silva
 5 - Saulo Santos Freire
 
-# repo no github: https://github.com/freirezinho/aplicacoes-distribuidas-ec03b-ac01
-
 1. Crie uma função datas_de_jogo, que procura nos dados do 
 brasileirão recebidas no parâmetro e devolve uma lista de todas 
 as datas em que houve jogo.
